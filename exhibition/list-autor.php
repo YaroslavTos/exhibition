@@ -1,7 +1,7 @@
 <?php
 require_once 'autoload.php';
 
-$size = 1;
+$size = 5;
 if (isset($_GET['page'])) {
     $page = Helper::clearInt($_GET['page']);
 }
@@ -40,6 +40,8 @@ require_once 'template/header.php';
                                 <th>Имя</th>
                                 <th>Пол</th>
                                 <th>Дата рождения</th>
+                                <th>Информация</th>
+                                <th>Образование</th>
 
                             </tr>
                             </thead>

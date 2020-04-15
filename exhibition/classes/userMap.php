@@ -6,7 +6,7 @@ class userMap extends BaseMap
 
     public function findById($id=null){
         if ($id) {
-            $res = $this->db->query("SELECT user_id, name,gender_id, birthday, ". "FROM user WHERE user_id = $id");
+            $res = $this->db->query("SELECT user_id, name,gender_id, birthday ". "FROM user WHERE user_id = $id");
             $user = $res->fetchObject("User");
             if ($user) {
                 return $user;
@@ -38,7 +38,7 @@ class userMap extends BaseMap
         $name = $this->db->quote($user->name);
         $birthday = $this->db->quote($user->birthday);
 
-        if ($this->db->exec("INSERT INTO user( name, gender_id, birthday)". " VALUES($name, $user->gender_id, $birthday, )") == 1) {
+        if ($this->db->exec("INSERT INTO user( name, gender_id, birthday)". " VALUES($name, $user->gender_id, $birthday )") == 1) {
             $user->user_id = $this->db->lastInsertId();
             return true;
         }
@@ -58,7 +58,7 @@ class userMap extends BaseMap
 
     public function findProfileById($id=null){
         if ($id) {
-            $res = $this->db->query("SELECT user.user_id, user.name,". " user.birthday, gender.name AS gender ". "INNER JOIN gender ON user.gender_id=gender.gender_id WHERE user.user_id = $id");
+            $res = $this->db->query("SELECT user.user_id, user.name, user.birthday, gender.name AS gender FROM user INNER JOIN gender ON user.gender_id=gender.gender_id WHERE user.user_id = $id");
             return $res->fetch(PDO::FETCH_OBJ);
         }
         return false;

@@ -40,6 +40,8 @@ require_once 'template/header.php';
                                 <th>Имя</th>
                                 <th>Пол</th>
                                 <th>Дата рождения</th>
+                                <th>Адрес</th>
+                                <th>Телефон</th>
 
                             </tr>
                             </thead>
@@ -52,6 +54,8 @@ require_once 'template/header.php';
                                 echo '<td>'.$owner->gender.'</td>';
 
                                 echo '<td>'.$owner->birthday.'</td>';
+                                echo '<td>'.$owner->adress.'</td>';
+                                echo '<td>'.$owner->telephone.'</td>';
 
                                 echo '</tr>';
                             }

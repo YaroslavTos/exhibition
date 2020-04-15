@@ -45,7 +45,7 @@ class ownerMap extends BaseMap
     }
 
     public function findAll($ofset=0, $limit=30){
-        $res = $this->db->query("SELECT user.user_id, name, user.birthday, ". " gender.name AS gender, FROM user INNER JOIN owner ON user.user_id=owner.user_id ". "INNER JOIN gender ON user.gender_id=gender.gender_id  LIMIT $ofset, $limit");
+        $res = $this->db->query("SELECT user.user_id, user.name, user.birthday, owner.adress, owner.telephone,  gender.name AS gender FROM user INNER JOIN owner ON user.user_id=owner.user_id INNER JOIN gender ON user.gender_id=gender.gender_id  LIMIT $ofset, $limit");
         return $res->fetchAll(PDO::FETCH_OBJ);
     }
 
@@ -57,7 +57,7 @@ class ownerMap extends BaseMap
 
     public function findProfileById($id=null){
         if ($id) {
-            $res = $this->db->query("SELECT owner.user_id, ". " WHERE owner.user_id =$id");
+            $res = $this->db->query("SELECT owner.user_id, adress, telephone FROM owner WHERE owner.user_id =$id");
             return $res->fetch(PDO::FETCH_OBJ);
         }
         return false;

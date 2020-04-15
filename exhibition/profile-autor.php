@@ -1,6 +1,9 @@
 <?php
 require_once 'autoload.php';
 
+if (isset($_GET['id'])) {
+    $id = Helper::clearInt($_GET['id']);
+}
 
 $header = 'Профиль автора';
 $autor = (new autorMap())->findProfileById($id);
@@ -31,7 +34,6 @@ require_once 'template/header.php';
                             <th>инфо</th>
                             <td><?=$autor->info;?></td>
                         </tr>
-
                         <tr>
                             <th>образование</th>
                             <td><?=$autor->education;?></td>

@@ -21,14 +21,16 @@ require_once 'template/header.php';
         <form action="save-user.php" method="POST">
             <?php require_once '_formUser.php'; ?>
 
+
+
             <div class="form-group">
                 <label>адресс</label>
-                <input type="text" class="form-control" name="adress" required="required" value="<?=$owner->adress;?>">
+                <input type="text" class="form-control" name="adress"  value="<?=$owner->adress;?>">
             </div>
 
             <div class="form-group">
                 <label>телефон</label>
-                <input type="text" class="form-control" name="telephone" required="required" value="<?=$owner->telephone;?>">
+                <input type="text" class="form-control" name="telephone"  value="<?=$owner->telephone;?>">
             </div>
 
 

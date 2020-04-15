@@ -1,7 +1,10 @@
 <?php
 $user = (new userMap())->findProfileById($id);
+
+
 if ($user) {
     ?>
+
     <tr>
         <th>Имя</th>
         <td><?=$user->name;?></td>
@@ -14,5 +17,6 @@ if ($user) {
         <th>Дата рождения</th>
         <td><?=date("d.m.Y", strtotime($user->birthday));?></td>
     </tr>
+
 
 <?php } ?>

@@ -9,8 +9,7 @@ class autor extends BaseMap
 
     public function validate()
     {
-        if (!empty($this->user_id) &&
-            !empty($this->info) &&
+        if (!empty($this->info) &&
             !empty($this->education)) {
             return true;
         }

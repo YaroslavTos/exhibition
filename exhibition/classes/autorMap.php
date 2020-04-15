@@ -13,6 +13,8 @@ class autorMap extends BaseMap
         }
         return new autor();
     }
+
+
     public function save(user $user,autor $autor){
         if ($user->validate() && $autor->validate() && (new userMap())->save($user)) {
             if ($autor->user_id == 0) {
@@ -25,6 +27,8 @@ class autorMap extends BaseMap
         }
         return false;
     }
+
+
     private function insert(autor $autor){
         $info = $this-> db->quote($autor->info);
         $education = $this-> db->quote($autor->education);
@@ -45,7 +49,7 @@ class autorMap extends BaseMap
     }
 
     public function findAll($ofset=0, $limit=30){
-        $res = $this->db->query("SELECT user.user_id, user.name , user.birthday, autor.info ". " gender.name AS gender,  FROM user INNER JOIN autor ON user.user_id=autor.user_id ". "INNER JOIN gender ON user.gender_id=gender.gender_id  LIMIT $ofset, $limit");
+        $res = $this->db->query("SELECT user.user_id, user.name , user.birthday, autor.info, autor.education ,   gender.name AS gender  FROM user INNER JOIN autor ON user.user_id=autor.user_id INNER JOIN gender ON user.gender_id=gender.gender_id  LIMIT $ofset, $limit");
         return $res->fetchAll(PDO::FETCH_OBJ);
     }
 

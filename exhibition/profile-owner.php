@@ -27,8 +27,8 @@ require_once 'template/header.php';
                 </div>
                 <div class="box-body">
                     <table class="table table-bordered table-hover">
-                        <?php require_once '_profile.php';?>
 
+                        <?php require_once '_profile.php';?>
 
                         <tr>
                             <th>Адресс</th>

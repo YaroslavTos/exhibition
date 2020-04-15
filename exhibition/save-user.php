@@ -15,6 +15,9 @@ if (isset($_POST['user_id'])) {
         $autor->info = Helper::clearString($_POST['info']);
         $autor->education = Helper::clearString($_POST['education']);
         $autor->user_id = $user->user_id;
+
+
+
         if ((new autorMap())->save($user, $autor)) {
             header('Location: profile-autor.php?id='.$autor->user_id);
         }

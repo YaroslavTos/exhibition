@@ -10,8 +10,7 @@ class user extends BaseMap
 
     public function validate()
     {
-        if (!empty($this->user_id) &&
-            !empty($this->name) &&
+        if (!empty($this->name) &&
             !empty($this->birthday) &&
             !empty($this->gender_id)) {
             return true;

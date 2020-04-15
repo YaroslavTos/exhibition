@@ -9,8 +9,7 @@ class owner extends BaseMap
 
     public function validate()
     {
-        if (!empty($this->user_id) &&
-            !empty($this->adress) &&
+        if (!empty($this->adress) &&
             !empty($this->telephone)) {
             return true;
         }

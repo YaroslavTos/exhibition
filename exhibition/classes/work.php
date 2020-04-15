@@ -1,7 +1,7 @@
 <?php
 
 
-class work extends BaseMap
+class work extends Table
 {
     public $work_id=0;
     public $user_id='';
@@ -10,17 +10,18 @@ class work extends BaseMap
     public $execution='';
     public $height='';
     public $width='';
+    public $volume='';
 
 
     public function validate()
     {
-        if (!empty($this->work_id) &&
-            !empty($this->user_id) &&
+        if (!empty($this->user_id) &&
             !empty($this->name) &&
             !empty($this->date_create) &&
             !empty($this->execution) &&
             !empty($this->height) &&
-            !empty($this->width))
+            !empty($this->width)&&
+            !empty($this->volume))
              {
             return true;
         }

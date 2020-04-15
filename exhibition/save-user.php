@@ -3,8 +3,6 @@ require_once 'autoload.php';
 
 if (isset($_POST['user_id'])) {
     $user = new user();
-
-
     $user->name = Helper::clearString($_POST['name']);
     $user->birthday = Helper::clearString($_POST['birthday']);
     $user->gender_id = Helper::clearInt($_POST['gender_id']);

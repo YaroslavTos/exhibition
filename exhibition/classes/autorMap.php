@@ -48,6 +48,8 @@ class autorMap extends BaseMap
         return false;
     }
 
+
+
     public function findAll($ofset=0, $limit=30){
         $res = $this->db->query("SELECT user.user_id, user.name , user.birthday, autor.info, autor.education ,   gender.name AS gender  FROM user INNER JOIN autor ON user.user_id=autor.user_id INNER JOIN gender ON user.gender_id=gender.gender_id  LIMIT $ofset, $limit");
         return $res->fetchAll(PDO::FETCH_OBJ);

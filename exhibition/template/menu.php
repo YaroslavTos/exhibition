@@ -16,17 +16,17 @@
 
             <li class="header">выставки</li>
             <li <?=($_SERVER['PHP_SELF']=='/list-work.php')?'class="active"':'';?>>
-                <a href="list-gruppa.php"><i class="fa fa-users"></i><span>работы</span></a>
+                <a href="list-work.php"><i class="fa fa-users"></i><span>работы</span></a>
             </li>
             <li <?=($_SERVER['PHP_SELF']=='/list-hall.php')?'class="active"':'';?>>
-                <a href="list-otdel.php"><i class="fa fa-users"></i><span>залы</span></a>
+                <a href="list-hall.php"><i class="fa fa-users"></i><span>залы</span></a>
             </li>
             <li <?=($_SERVER['PHP_SELF']=='/list-exhibition.php')?'class="active"':'';?>>
-                <a href="list-special.php"><i class="fa fa-users"></i><span>выставки</span></a>
+                <a href="list-exhibition.php"><i class="fa fa-users"></i><span>выставки</span></a>
             </li>
 
-            <li <?=($_SERVER['PHP_SELF']=='/list-classroom.php')?'class="active"':'';?>>
-                <a href="list-classroom.php"><i class="fa fa-users"></i><span>работы на выставках</span></a>
+            <li <?=($_SERVER['PHP_SELF']=='/list-exhibition_work.php')?'class="active"':'';?>>
+                <a href="list-exhibition_work.php"><i class="fa fa-users"></i><span>работы на выставках</span></a>
             </li>
 
 

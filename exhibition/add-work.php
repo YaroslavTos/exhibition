@@ -30,29 +30,29 @@ require_once 'template/header.php';
             <div class="form-group">
                 <label>Автор</label>
                 <select class="form-control" name="user_id">
-                    <?= Helper::printSelectOptions($work->user_id, (new userMap())->arrUser());?>
+                    <?= Helper::printSelectOptions($work->user_id, (new autorMap())->arrUser());?>
                 </select>
             </div>
 
             <div class="form-group">
                 <label>дата создания</label>
-                <input type="date" class="form-control" name="adress"  value="<?=$work->date_create;?>">
+                <input type="date" class="form-control" name="date_create"  value="<?=$work->date_create;?>">
             </div>
             <div class="form-group">
                 <label>Выполнение</label>
-                <input type="text" class="form-control" name="adress"  value="<?=$work->execution;?>">
+                <input type="text" class="form-control" name="execution"  value="<?=$work->execution;?>">
             </div>
             <div class="form-group">
                 <label>Высота</label>
-                <input type="text" class="form-control" name="adress"  value="<?=$work->height;?>">
+                <input type="text" class="form-control" name="height"  value="<?=$work->height;?>">
             </div>
             <div class="form-group">
                 <label>Ширина</label>
-                <input type="text" class="form-control" name="adress"  value="<?=$work->width;?>">
+                <input type="text" class="form-control" name="width"  value="<?=$work->width;?>">
             </div>
             <div class="form-group">
                 <label>Объем</label>
-                <input type="text" class="form-control" name="adress"  value="<?=$work->volume;?>">
+                <input type="text" class="form-control" name="volume"  value="<?=$work->volume;?>">
             </div>
 
 

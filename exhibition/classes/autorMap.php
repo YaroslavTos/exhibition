@@ -29,6 +29,15 @@ class autorMap extends BaseMap
     }
 
 
+
+
+    public function arrUser(){
+        $res = $this->db->query("SELECT user.user_id AS id, user.name AS value FROM user INNER JOIN autor on user.user_id = autor.user_id ");
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
     private function insert(autor $autor){
         $info = $this-> db->quote($autor->info);
         $education = $this-> db->quote($autor->education);

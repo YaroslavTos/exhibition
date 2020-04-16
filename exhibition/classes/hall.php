@@ -12,8 +12,7 @@ class hall extends BaseMap
 
     public function validate()
     {
-        if (!empty($this->hall_id) &&
-            !empty($this->name) &&
+        if (!empty($this->name) &&
             !empty($this->area) &&
             !empty($this->adress) &&
             !empty($this->telephone) &&

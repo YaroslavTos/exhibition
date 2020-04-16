@@ -4,10 +4,7 @@
 class workMap extends BaseMap
 {
 
-    public function arrSpecials(){
-        $res = $this->db->query("SELECT work_id AS id, name AS value FROM work");
-        return $res->fetchAll(PDO::FETCH_ASSOC);
-    }
+
 
     public function findById($id=null){
         if ($id) {
@@ -37,7 +34,7 @@ class workMap extends BaseMap
         $width = $this->db->quote($work->width);
         $volume = $this->db->quote($work->volume);
 
-        if ($this->db->exec("INSERT INTO work(name,user_id, date_create, execution, height, width, volume,)". " VALUES($name, $work->user_id, $date_create, $execution, $height, $width, $volume)") == 1) {
+        if ($this->db->exec("INSERT INTO work(name,user_id, date_create, execution, height, width, volume)". " VALUES($name, $work->user_id, $date_create, $execution, $height, $width, $volume)") == 1) {
             $work->work_id = $this->db->lastInsertId();
             return true;
         }

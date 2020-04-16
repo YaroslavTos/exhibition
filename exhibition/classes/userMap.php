@@ -36,14 +36,6 @@ class userMap extends BaseMap
 
 
 
-    public function arrUser(){
-        $res = $this->db->query("SELECT user_id AS id, name AS value FROM user ");
-        return $res->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-
-
-
     private function insert(User $user){
         $name = $this->db->quote($user->name);
         $birthday = $this->db->quote($user->birthday);

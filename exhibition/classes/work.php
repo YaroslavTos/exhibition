@@ -10,7 +10,7 @@ class work extends Table
     public $execution='';
     public $height='';
     public $width='';
-    public $volume='';
+
 
 
     public function validate()
@@ -20,8 +20,7 @@ class work extends Table
             !empty($this->date_create) &&
             !empty($this->execution) &&
             !empty($this->height) &&
-            !empty($this->width)&&
-            !empty($this->volume))
+            !empty($this->width))
              {
             return true;
         }

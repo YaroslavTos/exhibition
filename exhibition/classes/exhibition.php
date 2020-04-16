@@ -13,8 +13,7 @@ class exhibition extends BaseMap
 
     public function validate()
     {
-        if (!empty($this->exhibition_id) &&
-            !empty($this->name) &&
+        if (!empty($this->name) &&
             !empty($this->hall_id) &&
             !empty($this->date) &&
             !empty($this->adress) &&

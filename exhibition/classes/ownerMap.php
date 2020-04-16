@@ -26,6 +26,19 @@ class ownerMap extends BaseMap
         }
         return false;
     }
+
+
+
+
+    public function arrUser(){
+        $res = $this->db->query("SELECT user.user_id AS id, user.name AS value FROM user INNER JOIN owner on user.user_id = owner.user_id ");
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+
+
     private function insert(owner $owner){
         $adress = $this-> db->quote($owner->adress);
         $telephone = $this-> db->quote($owner->telephone);

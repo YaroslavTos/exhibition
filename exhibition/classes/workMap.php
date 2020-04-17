@@ -26,6 +26,20 @@ class workMap extends BaseMap
         return false;
     }
 
+
+
+
+
+    public function arrWork()
+    {
+        $res = $this->db->query("SELECT work_id AS id, name AS value FROM work");
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+
+
     private function insert(work $work){
         $name = $this->db->quote($work->name);
         $date_create = $this->db->quote($work->date_create);

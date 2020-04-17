@@ -35,6 +35,10 @@ class autorMap extends BaseMap
         $res = $this->db->query("SELECT user.user_id AS id, user.name AS value FROM user INNER JOIN autor on user.user_id = autor.user_id ");
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function arrUser2(){
+        $res = $this->db->query("SELECT user.user_id AS id, user.name AS value FROM user INNER JOIN autor on user.user_id = autor.user_id ");
+        return $res->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 

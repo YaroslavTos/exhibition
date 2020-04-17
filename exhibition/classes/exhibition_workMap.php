@@ -11,20 +11,22 @@ class exhibition_workMap extends BaseMap
                 return $exhibition_work;
             }
         }
-        return new Exhibition_work();
+        return new exhibition_work();
     }
-    public function save(User $user,Exhibition_work $exhibition_work){
-        if ($user->validate() && $exhibition_work->validate() && (new exhibition_workMap())->save($user)) {
-            if ($exhibition_work->user_id == 0) {
-                $exhibition_work->user_id = $user->user_id;
+
+    public function save(exhibition_work $exhibition_work)
+    {
+        if ($exhibition_work->validate()) {
+            if ($exhibition_work->exhibition_work_id == 0) {
                 return $this->insert($exhibition_work);
-            }
-            else {
+            } else {
                 return $this->update($exhibition_work);
             }
         }
         return false;
     }
+
+
     private function insert(Exhibition_work $exhibition_work){
         if ($this->db->exec("INSERT INTO exhibition_work(exhibition_id, user_id, work_id) VALUES($exhibition_work->exhibition_id, $exhibition_work->user_id, $exhibition_work->work_id)") == 1) {
             return true;
@@ -33,27 +35,31 @@ class exhibition_workMap extends BaseMap
     }
 
     private function update(Exhibition_work $exhibition_work){
-        if ($this->db->exec("UPDATE Exhibition_work SET exhibition_id = $exhibition_work->exhibition_id WHERE exhibition_id=".$exhibition_work->exhibition_id) == 1) {
+        if ($this->db->exec("UPDATE Exhibition_work SET $exhibition_work->exhibition_id, $exhibition_work->user_id, $exhibition_work->work_id WHERE exhibition_work_id=".$exhibition_work->exhibition_work_id) == 1) {
             return true;
         }
         return false;
     }
 
-    public function findAll($ofset=0, $limit=30){
-        $res = $this->db->query("SELECT exhibition.exhibition_id, ". " FROM exhibition INNER JOIN exhibition_work ON wok.workr_id=exhibition_work.work_id ". "INNER JOIN user ON autor.user_id=exhibition_work.user_id LIMIT $ofset, $limit");
+    public function findAll($ofset = 0, $limit = 30)
+    {
+        $res = $this->db->query("SELECT exhibition_work_id, exhibition_id ,user_id,work_id FROM exhibition_work LIMIT $ofset,$limit");
         return $res->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function count(){
+    public function count()
+    {
         $res = $this->db->query("SELECT COUNT(*) AS cnt FROM exhibition_work");
         return $res->fetch(PDO::FETCH_OBJ)->cnt;
     }
 
-    public function findProfileById($id=null){
+    public function findViewById($id = null)
+    {
         if ($id) {
-            $res = $this->db->query("SELECT Exhibition_work.exhibition_id, exhibition.name AS exhibition FROM exhibition_work ". "INNER JOIN work ON exhibition_work.work_id=work.work_id WHERE autor.user_id =$id");
+            $res = $this->db->query("SELECT exhibition_work_id, exhibition_id,user_id,work_id  FROM exhibition_work WHERE exhibition_work_id =$id");
             return $res->fetch(PDO::FETCH_OBJ);
         }
         return false;
     }
 }
+

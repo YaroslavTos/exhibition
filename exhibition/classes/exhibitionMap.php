@@ -29,8 +29,10 @@ class exhibitionMap extends BaseMap
 
 
 
-    public function arrex(){
-        $res = $this->db->query("SELECT exhibition.exhibition_id AS id, exhibition.name AS value FROM exhibition INNER JOIN exhibition_work on exhibition.exhibition_id = exhibition_work.exhibition_id ");
+
+    public function arrEx()
+    {
+        $res = $this->db->query("SELECT exhibition_id AS id, name AS value FROM exhibition");
         return $res->fetchAll(PDO::FETCH_ASSOC);
     }
 

@@ -3,6 +3,7 @@
 
 class exhibition_work extends BaseMap
 {
+    public $exhibition_work_id=0;
     public $exhibition_id='';
     public $user_id='';
     public $work_id='';
